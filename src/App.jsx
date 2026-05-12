@@ -5,6 +5,9 @@ import {Cards, Score} from "./Components.jsx"
 import "./App.css";
 
 function App() {
+
+
+
   return (
   <>
     <Score></Score>
