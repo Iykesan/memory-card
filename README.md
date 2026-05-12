@@ -1,16 +1,79 @@
-# React + Vite
+# Memory Card Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based memory card game built with external APIs.  
+The goal of the game is simple: click each card only once.  
+If you click the same character twice, your score resets.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Fetches character data from external APIs
+- Supports multiple character sets:
+  - Pokémon API
+  - Rick and Morty API
+- Randomized card shuffling after every click
+- Score tracking system
+- High score tracking
+- Responsive card grid layout
+- Dynamic character switching
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- CSS Grid
+- Fetch API
+- Vite
 
-## Expanding the ESLint configuration
+## APIs Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Pokémon API
+https://pokeapi.co/
+
+### Rick and Morty API
+https://rickandmortyapi.com/
+
+## What I Learned
+
+This project helped me practice:
+
+- React hooks (`useState`, `useEffect`)
+- State management
+- Fetching asynchronous API data
+- Rendering dynamic lists
+- Event handling in React
+- Conditional logic
+- Array manipulation and shuffling
+- Component-based UI structure
+
+## Future Improvements
+
+- Add animations and transitions
+- Add difficulty levels
+- Add timer/game-over screen
+- Add more character APIs
+- Improve responsive design for mobile
+- Add sound effects and win conditions
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Iykesan/memory-card.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+## Live Demo
+
+(Add deployed link here)
