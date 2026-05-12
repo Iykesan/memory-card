@@ -47,6 +47,10 @@ export const Cards = () => {
           setHighscore(score + 1);
         }
       setClickedCards(...clickedCards, id);
+
+      const shuffled = [...cards].sort(() => Math.random() - 0.5);
+      setCards(shuffled)
+
     }
     clickedCards.push(id);
     setClickedCards(clickedCards);
