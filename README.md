@@ -76,4 +76,4 @@ npm run dev
 
 ## Live Demo
 
-(Add deployed link here)
+https://memory-card-nine-phi.vercel.app/
