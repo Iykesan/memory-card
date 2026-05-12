@@ -5,6 +5,7 @@ export const Cards = () => {
   const [clickedCards, setClickedCards] = useState([]);
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
+  const [characters, setCharacters] = useState("pokemon");
 
   useEffect(() => {
     async function fetchPokemon() {
@@ -34,34 +35,60 @@ export const Cards = () => {
 
       setCards(formatted);
     }
-    fetchPokemon();
-  }, []);
+
+    async function fetchRickAndMorty() {
+      const response = await fetch("https://rickandmortyapi.com/api/character");
+      const data = await response.json();
+
+      const formatted = data.results.slice(0, 12).map((character) => ({
+        id: character.id,
+        name: character.name,
+        image: character.image,
+      }));
+
+      setCards(formatted);
+    }
+
+    if (characters === "pokemon") {
+      fetchPokemon();
+    } else {
+      fetchRickAndMorty();
+    }
+  }, [characters]);
 
   const handleClick = (id) => {
     if (clickedCards.includes(id)) {
       setScore(0);
       setClickedCards([]);
     } else {
-        setScore(score + 1);
-        if (score >= highscore) {
-          setHighscore(score + 1);
-        }
-      setClickedCards(...clickedCards, id);
+      setScore(score + 1);
+      if (score >= highscore) {
+        setHighscore(score + 1);
+      }
+      setClickedCards([...clickedCards, id]);
 
       const shuffled = [...cards].sort(() => Math.random() - 0.5);
-      setCards(shuffled)
-
+      setCards(shuffled);
     }
-    clickedCards.push(id);
-    setClickedCards(clickedCards);
   };
+
+  const handleCharacterSwitch = () => {
+    setScore(0)
+    setHighscore(0)
+    if(characters === 'pokemon'){
+        setCharacters('rick')
+    }else{
+        setCharacters('pokemon')
+    }
+  }
 
   return (
     <div className="container">
+        <button id="switch-btn" onClick={handleCharacterSwitch}>Switch Characters</button>
       <div className="scoreBoard">
         <h2>MemoryCard Game</h2>
-        <p>{score}</p>
-        <p>{highscore}</p>
+        <p>Score: {score}</p>
+        <p>HighScore: {highscore}</p>
       </div>
       <div className="cards-container">
         {cards.map((pokemon) => (
